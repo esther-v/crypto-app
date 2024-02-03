@@ -57,6 +57,8 @@ const News = ({ simplified }) => {
 
   // console.log(news)
 
+  //to finish when api max requests per day is restarted
+
   if(!news) return 'Loading...'
 
   return (

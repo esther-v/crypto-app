@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import HTMLReactParser from 'html-react-parser'
 import { useParams } from 'react-router-dom'
 import millify from 'millify'
 import { Col, Row, Typography, Select } from 'antd'
@@ -34,8 +33,6 @@ const CryptoDetails = () => {
     { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)}`, icon: <ExclamationCircleOutlined /> },
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
-
-  console.log(data)
 
   if (isFetching) return 'Loading...'
 
@@ -85,7 +82,7 @@ const CryptoDetails = () => {
               Other statistics
             </Title>
             <p>
-              An overview showing the stats of {cryptoDetails.name}
+              An overview showing the stats of all cryptocurrencies
             </p>
           </Col>
           {genericStats.map(({ icon, title, value }) => (
@@ -96,6 +93,27 @@ const CryptoDetails = () => {
               </Col>
               <Text className='stats'>{value}</Text>
             </Col>
+          ))}
+        </Col>
+      </Col>
+      <Col className='coin-desc-link'>
+        <Row className='coin-desc'>
+          <Title level={3} className='coin-details-heading'>
+            What is {cryptoDetails.name} ?
+          </Title>
+          <p>{cryptoDetails.description}</p>
+        </Row>
+        <Col className='coin-links'>
+          <Title level={3} className='coin-details-heading'>
+            {cryptoDetails.name} Links
+          </Title>
+          {cryptoDetails.links.map(link => (
+            <Row className='coin-link' key={link.name}>
+              <Title level={5} className='link-name'>
+                {link.type}
+              </Title>
+              <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
+            </Row>
           ))}
         </Col>
       </Col>
