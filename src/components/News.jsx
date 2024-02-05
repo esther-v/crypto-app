@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const { Text, Title } = Typography
 
-const News = ({ simplified }) => {
+const News = () => {
 
   const [news, setNews] = useState([])
   const demoImg = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News'
@@ -19,8 +19,8 @@ const News = ({ simplified }) => {
 
   return (
     <Row gutter={[ 24, 24]}>
-      {news.map((article) => (
-        <Col key={article.id} xs={24} sm={12} lg={8}>
+      {news.map((article, id) => (
+        <Col key={id} xs={24} sm={12} lg={8}>
           <Card hoverable className='news-card'>
             <a href={article.url} target='_blank' rel="noreferrer">
               <div className='news-image-container'>
@@ -30,14 +30,14 @@ const News = ({ simplified }) => {
                 <img src={article.urlToImage || demoImg} alt="news-crypto" style={{ width: "100px", height: "100px", objectFit: "cover"}} />
               </div>
               <p>
-                {article.description > 100 
+                {article.description.length > 100 
                   ? `${article.description.substring(0, 100)}...`
                   : article.description
                 }
               </p>
               <div>
                 <p>By {article.author}</p>
-                <Text>{moment(article.publishedAt).startOf('ss').fromNow()}</Text>
+                <Text style={{ color: "#003eb3"}}>{moment(article.publishedAt).startOf('ss').fromNow()}</Text>
               </div>
             </a>
           </Card>

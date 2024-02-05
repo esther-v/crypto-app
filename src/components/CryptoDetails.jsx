@@ -11,9 +11,9 @@ const { Option } = Select
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
-  const [timePeriod, setTimePeriod] = useState('7d')
+  const [timeperiod, setTimeperiod] = useState('7d')
   const { data, isFetching } = useGetCryptosDetailsQuery(coinId)
-  const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
+  const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod })
 
   const cryptoDetails = data?.data?.coin
 
@@ -35,8 +35,6 @@ const CryptoDetails = () => {
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
-  console.log(coinHistory)
-
   if (isFetching) return 'Loading...'
 
   return (
@@ -55,11 +53,11 @@ const CryptoDetails = () => {
         default="7d" 
         className='select-timeperiod' 
         placeholder="Select time period"
-        onChange={(value) => setTimePeriod(value)}
+        onChange={(value) => setTimeperiod(value)}
       >
         {time.map(date => <Option key={date}>{date}</Option>)}
       </Select>
-      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} />
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
       <Col className='stats-container'>
         <Col className='coin-value-statistics'>
           <Col className='coin-value-statistics-heading'>
@@ -71,7 +69,7 @@ const CryptoDetails = () => {
             </p>
           </Col>
           {stats.map(({ icon, title, value }) => (
-            <Col className='coin-stats'>
+            <Col key={title} className='coin-stats'>
               <Col className='coin-stats-name'>
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
@@ -90,7 +88,7 @@ const CryptoDetails = () => {
             </p>
           </Col>
           {genericStats.map(({ icon, title, value }) => (
-            <Col className='coin-stats'>
+            <Col key={title} className='coin-stats'>
               <Col className='coin-stats-name'>
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
