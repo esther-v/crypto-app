@@ -1,7 +1,18 @@
 import { Row, Col } from 'antd'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 
 const Exchanges = () => {
+
+  const [exchanges, setExchanges] = useState([])
+
+  useEffect(() => {
+    axios.get(`https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges`).then(data => {
+      setExchanges(data?.data)
+    })
+  }, [])
+
   return (
     <>
       <Row>
