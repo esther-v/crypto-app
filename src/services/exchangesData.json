@@ -1,0 +1,31 @@
+[
+  {
+    "coinrankingUrl":"https://coinranking.com/exchange/Z7wAB_T0o+coinsbit",
+    "rank":1,
+    "uuid":"Z7wAB_T0o",
+    "verified":false,
+    "recommended":false,
+    "numberOfMarkets":22,
+    "name":"Coinsbit",
+    "iconUrl":"https://cdn.coinranking.com/Xx7PRnP31/coinsbit.svg",
+    "v24hVolume":"2092377039.0491314",
+    "price":"6954.329554998793",
+    "btcPrice":"1",
+    "description": "Launched in August 2018, Coinsbit is a centralized exchange based in Estonia. The team claims that the number of Coinsbit users is 2,000,000. Coinsbit supports cryptocurrency pairs, 6+ fiat gateways and OTC trading, as well as P2P-lending platform. Coinsbit offers cryptocurrency trading and allows users to earn cryptoassets via the Staking pool. Coinsbit exchange token CNB that was launched on 1 January 2020 to reduce trading fees for users. Coinsbit offers its platform both for listing and for conducting IEOs."
+
+  },
+  {
+    "coinrankingUrl":"https://coinranking.com/exchange/8JlYgQMK+bkex",
+    "rank":2,
+    "uuid":"8JlYgQMK",
+    "verified":false,
+    "recommended":false,
+    "numberOfMarkets":14,
+    "name":"BKEX",
+    "iconUrl":"https://cdn.coinranking.com/uNp-AXDRf/BKEX.svg",
+    "v24hVolume":"1793966025.8889403",
+    "price":"6952.4065930949655",
+    "btcPrice":"1",
+    "description": "Established in 2018, BKEX is a global digital asset financial service platform, focusing on the discovering and absorption of high-quality assets, as well as an innovative international digital asset station for global users, offering trading and investment services between a variety of digital assets. BKEX has over 8 million users in over 100 countries, including Asia, Europe, Latin America, and more. It has launched 1000+ high-quality cryptocurrency trading pairs and 100+ crypto Derivative Futures."
+  }
+]
